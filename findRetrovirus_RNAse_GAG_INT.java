@@ -71,7 +71,7 @@ public class findRetrovirus_RNAse_GAG_INT {
 
 	private static void writeNewCandidates(String[] args) throws IOException {
 		System.out.println(args[0]);
-		String outputDirectory = args[0].replace("findPBS-sameleftright", "retrovirus-RNAase-GAG-INT-CandidateLTRs-");
+		String outputDirectory = args[0].replace("findPBS-sameleftright", "retrovirus-RNAase-GAG-CandidateLTRs-");
 		System.out.println(outputDirectory);
 		File file = new File(outputDirectory);
 		file.createNewFile();
