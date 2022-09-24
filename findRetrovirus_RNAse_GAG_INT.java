@@ -17,7 +17,7 @@ public class findRetrovirus_RNAse_GAG_INT {
 	final static int NUM_RETRO_PATTERNS = 3;
 	final static int NUM_RNA_PATTERNS = 2;
 	final static int NUM_GAG_PATTERNS = 1;
-	final static int NUM_INT_PATTERNS = 1;
+//	final static int NUM_INT_PATTERNS = 1;
 
 	public static void main(String[] args) throws IOException {
 		initCodonToAminoMap();
@@ -28,15 +28,15 @@ public class findRetrovirus_RNAse_GAG_INT {
 		Matcher[] RNAMatchers = new Matcher[NUM_RNA_PATTERNS];
 		Pattern[] GAGPatterns = new Pattern[NUM_GAG_PATTERNS];
 		Matcher[] GAGMatchers = new Matcher[NUM_GAG_PATTERNS];
-		Pattern[] INTPatterns = new Pattern[NUM_INT_PATTERNS];
-		Matcher[] INTMatchers = new Matcher[NUM_INT_PATTERNS];
+//		Pattern[] INTPatterns = new Pattern[NUM_INT_PATTERNS];
+//		Matcher[] INTMatchers = new Matcher[NUM_INT_PATTERNS];
 		retroPatterns[0] = Pattern.compile("NAPA");
 		retroPatterns[1] = Pattern.compile("KTAF");
 		retroPatterns[2] = Pattern.compile("M.FGL");
 		RNAPatterns[0] = Pattern.compile("DAS.........Q");
 		RNAPatterns[1] = Pattern.compile("D..SR");
 		GAGPatterns[0] = Pattern.compile(".............W..........................................L");
-		INTPatterns[0] = Pattern.compile("H.......T");
+//		INTPatterns[0] = Pattern.compile("H.......T");
 		for (String key : candidatesAmino.keySet()) {
 			for (String aminoSeq : candidatesAmino.get(key)) {
 				retroMatchers[0] = retroPatterns[0].matcher(aminoSeq);
@@ -45,18 +45,18 @@ public class findRetrovirus_RNAse_GAG_INT {
 				RNAMatchers[0] = RNAPatterns[0].matcher(aminoSeq);
 				RNAMatchers[1] = RNAPatterns[1].matcher(aminoSeq);
 				GAGMatchers[0] = GAGPatterns[0].matcher(aminoSeq);
-				INTMatchers[0] = INTPatterns[0].matcher(aminoSeq);
+//				INTMatchers[0] = INTPatterns[0].matcher(aminoSeq);
 				for (Matcher retroMatcher : retroMatchers)
 					if (retroMatcher.find()) {
 						for(Matcher RNAMatcher : RNAMatchers) {
 							if(RNAMatcher.find()) {
 								for(Matcher GAGMatcher: GAGMatchers) {
 									if(GAGMatcher.find()) {
-										for(Matcher INTMatcher : INTMatchers) {
-											if(INTMatcher.find()) {
+//										for(Matcher INTMatcher : INTMatchers) {
+//											if(INTMatcher.find()) {
 												candidates.put(key, origCandidates.get(key));
-											}
-										}
+//											}
+//										}
 									}
 								}
 							}
